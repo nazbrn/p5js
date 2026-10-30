@@ -1,0 +1,118 @@
+:root {
+  --pond: #061e2c;
+  --ink: #eef7f1;
+  --ink-soft: rgba(238, 247, 241, 0.62);
+  --accent: #e8573a;
+  --font-mincho: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --font-gothic: "Zen Kaku Gothic New", "Hiragino Sans", "Helvetica Neue", sans-serif;
+  color-scheme: dark;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--pond);
+}
+
+canvas {
+  display: block;
+}
+
+.label {
+  position: fixed;
+  left: max(20px, env(safe-area-inset-left, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  color: var(--ink);
+  pointer-events: none;
+  user-select: none;
+}
+
+.label h1 {
+  margin: 0;
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+}
+
+.label p {
+  margin: 4px 0 0;
+  font-family: var(--font-gothic);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.hint {
+  position: fixed;
+  left: 50%;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  font-family: var(--font-gothic);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  pointer-events: none;
+  transition: opacity 1.2s ease;
+  white-space: nowrap;
+}
+
+.hint.gone {
+  opacity: 0;
+}
+
+.sound {
+  position: fixed;
+  right: max(20px, env(safe-area-inset-right, 0px));
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid rgba(238, 247, 241, 0.28);
+  border-radius: 999px;
+  background: rgba(4, 22, 32, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--ink);
+  font-family: var(--font-gothic);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.sound:hover {
+  border-color: rgba(238, 247, 241, 0.6);
+}
+
+.sound:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.sound-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid var(--ink-soft);
+  transition: background 0.3s ease;
+}
+
+.sound[aria-pressed="true"] .sound-dot {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+}
+
+@media (max-width: 560px) {
+  .hint {
+    bottom: auto;
+    top: calc(18px + env(safe-area-inset-top, 0px));
+  }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Koi Pond</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&family=Zen+Kaku+Gothic+New:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <main></main>
+
+    <div class="label">
+      <h1>Koi Pond</h1>
+      <p>Nazanin Barnoon · p5.js · 2025</p>
+    </div>
+    <div class="hint" id="hint">Click the water to release a koi</div>
+    <button class="sound" id="soundBtn" type="button" aria-pressed="false">
+      <span class="sound-dot" aria-hidden="true"></span>
+      <span id="soundLabel">Sound off</span>
+    </button>
+
+    <script src="Water.js"></script>
+    <script src="Ripple.js"></script>
+    <script src="Rain.js"></script>
+    <script src="Sound.js"></script>
+    <script src="Leaf.js"></script>
+    <script src="KoiFish.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
